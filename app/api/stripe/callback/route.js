@@ -192,7 +192,7 @@ export async function GET(request) {
  * @param {string}            value   stripe_account_id on success, error code on failure
  */
 function redirectToFrontend(status, value) {
-  const destination = new URL(`${getAppUrl()}/settings/stripe`);
+  const destination = new URL(`${getAppUrl()}/stripe/success`);
   if (status === 'success') {
     destination.searchParams.set('connected', 'true');
     destination.searchParams.set('account', value);

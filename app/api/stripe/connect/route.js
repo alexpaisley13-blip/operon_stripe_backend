@@ -28,7 +28,7 @@ export async function GET(request) {
   }
 
   const { business_id, user_id } = authPayload;
-
+const secret = Buffer.from(process.env.JWT_SECRET, 'base64url').toString();
   if (!process.env.STRIPE_CLIENT_ID) {
     return errorResponse('STRIPE_CLIENT_ID is not configured on the server', 500);
   }
